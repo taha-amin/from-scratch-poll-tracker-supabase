@@ -11,6 +11,14 @@ export async function createPoll(poll) {
     return response.body;
 }
 
+export async function getPolls() {
+    const response = await client
+        .from('polls')
+        .select;
+
+    return response.data;
+}
+
 export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
 
