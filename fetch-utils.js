@@ -47,6 +47,16 @@ export async function signInUser(email, password) {
     return response;
 }
 
+export async function getUser() {
+    return client.auth.user();
+}
+
+export function checkLoggedIn() {
+    if (!client.auth.session()) {
+        window.location = '..';
+    }
+}
+
 export async function logout() {
     await client.auth.signOut();
 
