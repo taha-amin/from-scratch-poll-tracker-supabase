@@ -19,6 +19,22 @@ export async function getPolls() {
     return response.data;
 }
 
+export async function savePoll(question, option1, option2, votes1, votes2) {
+    const response = await client
+        .from('polls')
+        .insert ([
+            {
+                question,
+                option_1: option1,
+                option_2: option2,
+                votes_1: votes1,
+                votes_2: votes2
+            },
+        ]);
+
+    return response.data;
+}
+
 export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
 
