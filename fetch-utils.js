@@ -38,11 +38,17 @@ export async function savePoll(question, option1, option2, votes1, votes2) {
 export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
 
-    return response.user;
+    return response;
 }
 
 export async function signInUser(email, password) {
     const response = await client.auth.signIn({ email, password });
 
-    return response.user;
+    return response;
+}
+
+export async function logout() {
+    await client.auth.signOut();
+
+    return window.location.href = '../';
 }
