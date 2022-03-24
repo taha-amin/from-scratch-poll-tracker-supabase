@@ -17,60 +17,51 @@
     <main>
         <button id="logout">Logout</button>
         <section class="main-section">
-            <div class="left">
-                <h2>Current Poll</h2>
-                <div id="current-poll-container">
-                    <div class="form-and-buttons">
-                        <form class="name-form" id="name-form">
-                            <label>
-                                Poll name
-                                <input name="team-one" />
-                            </label>
-                            <label>
-                                Team Two name
-                                <input name="team-two" />
-                            </label>
-                            <button>Name teams</button>
-                        </form>
-
-                        <div class="buttons">
-                            <div class="top-buttons">
-                                <div class="left-buttons">
-                                    <h3 id="team-one-name">Team One</h3>
-                                    <button id="team-one-add-button">
-                                        Add
-                                    </button>
-                                    <button id="team-one-subtract-button" class="undo">
-                                        Subtract
-                                    </button>
-                                </div>
-                                <div class="right-buttons">
-                                    <h3 id="team-two-name">Team Two</h3>
-                                    <button id="team-two-add-button">
-                                        Add
-                                    </button>
-                                    <button id="team-two-subtract-button" class="undo">
-                                        Subtract
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="bottom-buttons">
-                                <button id="finish-poll-button">
-                                    Finish Game
-                                </button>
-                            </div>
+            <div class="top">
+                <div class="top">
+                    <div class="left">
+                        <h2>Current Poll</h2>
+                        <div class="current-poll">
+                            <div class="question">Question: </div>
+                            <div class="option-1-title">Option 1</div>
+                            <button class="option-1-button">Vote</button>
+                            <div class="option-1-votes">0</div>
+                            <div class="option-2-title">Option 2</div>
+                            <div class="option-2-votes">0</div>
+                            <button class="option-2-button">Vote</button>
+                            <button class="finish-button">Finish Poll</button>
                         </div>
                     </div>
-                </div>
-                <div class="right">
-                    <div>
-                        <h2>Past Polls</h2>
+                    <div class="form-container">
+                        <form id="poll-form">
+                            <label>
+                                Question
+                                <input name="question" />
+                            </label>
+
+                            <label>
+                                Option One
+                                <input name="option-1-title" />
+                            </label>
+
+                            <label>
+                                Option Two
+                                <input name="option-2-title" />
+                            </label>
+                            <button>Add Question and Options</button>
+                        </form>
                     </div>
-                    <div id="past-polls-container"></div>
+                </div>
+                <div class="bottom">
+                    <h2>Past Polls</h2>
+                    <div class="past-polls">
+
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+    
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
