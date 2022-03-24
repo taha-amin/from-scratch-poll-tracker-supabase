@@ -3,10 +3,10 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-export async function createGame(game) {
+export async function createPoll(poll) {
     const response = await client
-        .from('games')
-        .insert(game);
+        .from('polls')
+        .insert(poll);
     
     return response.body;
 }
