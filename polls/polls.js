@@ -1,3 +1,4 @@
+//imported functions and DOM elements
 import { savePoll, getPolls, logout, checkLoggedIn } from '../fetch-utils.js';
 import { renderPoll } from '../render-utils.js';
 
@@ -18,3 +19,14 @@ const pastPollsEl = document.querySelector('.past-polls');
 
 const pollFormEl = document.querySelector('#poll-form');
 const logoutButtonEl = document.querySelector('#logout');
+
+//let states
+let question = '';
+
+let option1Title = '';
+let option1Votes = 0;
+
+let option2Title = '';
+let option2Votes = 0;
+
+//create event listeners
