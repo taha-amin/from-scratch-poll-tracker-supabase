@@ -65,6 +65,15 @@ optionTwoSubtractButton.addEventListener('click', () => {
 finishPollButton.addEventListener('click', async () => {
     await savePoll(question, option_1, option_2, votes_1, votes_2);
 
+    question = '';
+
+    option_1 = '';
+    votes_1 = 0;
+
+    option_2 = '';
+    votes_2 = 0;
+
+    displayCurrentPollEl();
     displayAllPoles();
 });
 
