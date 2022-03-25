@@ -30,3 +30,14 @@ let option2Title = '';
 let option2Votes = 0;
 
 //create event listeners
+options1ButtonEl.addEventListener('click', () => {
+    option1Votes++;
+
+    options1VotesEl.textContent = option1Votes;
+});
+
+options2ButtonEl.addEventListener('click', () => {
+    option2Votes++;
+
+    options2VotesEl.textContent = option2Votes;
+});
