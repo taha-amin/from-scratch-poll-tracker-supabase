@@ -20,7 +20,7 @@ const pastPollsEl = document.querySelector('.past-polls');
 const pollFormEl = document.querySelector('#poll-form');
 const logoutButtonEl = document.querySelector('#logout');
 
-const currentPollEl = document.querySelector('current-poll');
+const currentPollEl = document.querySelector('.current-poll');
 
 //let states
 let question = '';
@@ -83,14 +83,14 @@ finishButtonEl.addEventListener('click', async () => {
 });
 
 function displayCurrentPollEl() {
-    //clear out the current game div
+    //clear out the current poll div
     currentPollEl.textContent = '';
 
     //change the label to show option 1
-    option_1.textContent = option_1;
+    options1TitleEl.textContent = option_1;
 
     //change the label to show option 2
-    option_2.textContent = option_2;
+    options2TitleEl.textContent = option_2;
 
     const newPoll = {
         option_1: option_1,
@@ -109,6 +109,7 @@ async function displayPolls() {
     pastPollsEl.textContent = '';
 
     const polls = await getPolls();
+    console.log(polls);
 
     for (let poll of polls) {
         const newPollEl = renderPoll(poll);
