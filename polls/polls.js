@@ -30,6 +30,14 @@ let option2Title = '';
 let option2Votes = 0;
 
 //create event listeners
+window.addEventListener('load', async () => {
+    await displayPolls();
+});
+
+logoutButtonEl.addEventListener('click', async () => {
+    await logout();
+});
+
 options1ButtonEl.addEventListener('click', () => {
     option1Votes++;
 
@@ -41,3 +49,15 @@ options2ButtonEl.addEventListener('click', () => {
 
     options2VotesEl.textContent = option2Votes;
 });
+
+async function displayPolls() {
+    const polls = await getPolls();
+
+    pastPollsEl.textContent = '';
+
+    for (let poll of polls) {
+        const newPollEl = renderPoll(poll);
+
+        pastPollsEl.append(newPollEl);
+    }
+}
