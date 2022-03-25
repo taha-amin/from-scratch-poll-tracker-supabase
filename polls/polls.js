@@ -72,7 +72,7 @@ options2ButtonEl.addEventListener('click', () => {
     options2VotesEl.textContent = option2Votes;
 });
 
-finishButtonEl.addEventListener('click', async() => {
+finishButtonEl.addEventListener('click', async () => {
     await savePoll(question, option1Title, option2Title, option1Votes, option2Votes);
 
     displayPolls();
