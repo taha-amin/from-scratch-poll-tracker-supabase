@@ -20,14 +20,16 @@ const pastPollsEl = document.querySelector('.past-polls');
 const pollFormEl = document.querySelector('#poll-form');
 const logoutButtonEl = document.querySelector('#logout');
 
+const currentPollEl = document.querySelector('current-poll');
+
 //let states
 let question = '';
 
-let option1Title = '';
-let option1Votes = 0;
+let option_1 = '';
+let votes_1 = 0;
 
-let option2Title = '';
-let option2Votes = 0;
+let option_2 = '';
+let votes_2 = 0;
 
 //create event listeners
 window.addEventListener('load', async () => {
@@ -44,44 +46,69 @@ pollFormEl.addEventListener('submit', (e) => {
     const data = new FormData(pollFormEl);
 
     question = data.get('question');
-    option1Title = data.get('option-1-title');
-    option1Votes = data.get('option-1-votes');
+    option_1 = data.get('option-1-title');
+    votes_1 = data.get('option-1-votes');
 
-    option2Title = data.get('option-2-title');
-    option2Votes = data.get('option-2-votes');
+    option_2 = data.get('option-2-title');
+    votes_2 = data.get('option-2-votes');
 
     questionEl.textContent = question;
-    options1TitleEl.textContent = option1Title;
-    options1VotesEl.textContent = option1Votes;
+    options1TitleEl.textContent = option_1;
+    options1VotesEl.textContent = votes_1;
 
-    options2TitleEl.textContent = option2Title;
-    options2VotesEl.textContent = option2Votes;
+    options2TitleEl.textContent = option_2;
+    options2VotesEl.textContent = votes_2;
 
     pollFormEl.reset();
+
+    displayCurrentPollEl();
 });
 
 options1ButtonEl.addEventListener('click', () => {
-    option1Votes++;
+    votes_1++;
 
-    options1VotesEl.textContent = option1Votes;
+    displayCurrentPollEl();
 });
 
 options2ButtonEl.addEventListener('click', () => {
-    option2Votes++;
+    votes_2++;
 
-    options2VotesEl.textContent = option2Votes;
+    displayCurrentPollEl();
 });
 
 finishButtonEl.addEventListener('click', async () => {
-    await savePoll(question, option1Title, option2Title, option1Votes, option2Votes);
+    await savePoll(question, option_1, option_2, votes_1, votes_2);
 
     displayPolls();
 });
 
-async function displayPolls() {
-    const polls = await getPolls();
+function displayCurrentPollEl() {
+    //clear out the current game div
+    currentPollEl.textContent = '';
 
+    //change the label to show option 1
+    option_1.textContent = option_1;
+
+    //change the label to show option 2
+    option_2.textContent = option_2;
+
+    const newPoll = {
+        option_1: option_1,
+        option_2: option_2,
+
+        votes_1: votes_1,
+        votes_2: votes_2,
+    };
+
+    const pollEl = renderPoll(newPoll);
+
+    currentPollEl.append(pollEl);
+}
+
+async function displayPolls() {
     pastPollsEl.textContent = '';
+
+    const polls = await getPolls();
 
     for (let poll of polls) {
         const newPollEl = renderPoll(poll);
@@ -89,3 +116,5 @@ async function displayPolls() {
         pastPollsEl.append(newPollEl);
     }
 }
+
+displayCurrentPollEl();

@@ -7,7 +7,7 @@ export function renderPoll(poll) {
     const newVotesOneEl = document.createElement('p');
     const newVotesTwoEl = document.createElement('p');
 
-    newPollEl.classList.add('pol');
+    newPollEl.classList.add('poll');
     newQuestionEl.textContent = poll.question;
     newOptionOneEl.textContent = poll.option_1;
     newOptionTwoEl.textContent = poll.option_2;

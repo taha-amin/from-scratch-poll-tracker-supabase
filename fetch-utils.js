@@ -38,13 +38,13 @@ export async function savePoll(question, option1, option2, votes1, votes2) {
 export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
 
-    return response;
+    return response.user;
 }
 
 export async function signInUser(email, password) {
     const response = await client.auth.signIn({ email, password });
 
-    return response;
+    return response.user;
 }
 
 export async function getUser() {
@@ -53,7 +53,7 @@ export async function getUser() {
 
 export function checkLoggedIn() {
     if (!client.auth.session()) {
-        window.location = '..';
+        window.location = '../';
     }
 }
 
@@ -61,4 +61,10 @@ export async function logout() {
     await client.auth.signOut();
 
     return window.location.href = '../';
+}
+
+export async function redirectToPolls() {
+    if (await getUser()) {
+        location.replace('./polls');
+    }
 }
