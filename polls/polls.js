@@ -109,7 +109,7 @@ async function displayPolls() {
     pastPollsEl.textContent = '';
 
     const polls = await getPolls();
-    console.log(polls);
+    //console.log(polls);
 
     for (let poll of polls) {
         const newPollEl = renderPoll(poll);
