@@ -2,7 +2,7 @@
 import { signupUser } from './fetch-utils.js';
 
 // let state
-const signUpForm = document.querySelector('#sign-up');
+const signUpForm = document.querySelector('#sign-in');
 
 signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
