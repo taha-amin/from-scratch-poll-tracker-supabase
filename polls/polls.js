@@ -38,6 +38,28 @@ logoutButtonEl.addEventListener('click', async () => {
     await logout();
 });
 
+pollFormEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = new FormData(pollFormEl);
+
+    question = data.get('question');
+    option1Title = data.get('option-1-title');
+    option1Votes = data.get('option-1-votes');
+
+    option2Title = data.get('option-2-title');
+    option2Votes = data.get('option-2-votes');
+
+    questionEl.textContent = question;
+    options1TitleEl.textContent = option1Title;
+    options1VotesEl.textContent = option1Votes;
+
+    options2TitleEl.textContent = option2Title;
+    options2VotesEl.textContent = option2Votes;
+
+    pollFormEl.reset();
+});
+
 options1ButtonEl.addEventListener('click', () => {
     option1Votes++;
 
