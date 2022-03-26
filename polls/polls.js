@@ -81,7 +81,7 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
-window.addEventListener('', async () => {
+window.addEventListener('load', async () => {
     await displayAllPoles();
 });
 
