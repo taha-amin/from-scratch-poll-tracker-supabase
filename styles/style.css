@@ -76,14 +76,13 @@ p {
     margin: var(--gutter);
 }
 
-
-#past-poll-container {
+#past-polls-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#past-poll-container .poll {
+#past-polls-container .poll {
     margin: 10px;
 }
 
